@@ -4,6 +4,7 @@
     "avatarUrl":"https://q.qlogo.cn/g?b=qq&nk=1956967025&s=100",
     "GMEEK_VERSION":"last",
     "needComment":1
+    .utterances.utterances-frame
     <script src="https://utteranc.es/client.js"
         repo="[ENTER REPO HERE]"
         issue-term="pathname"
