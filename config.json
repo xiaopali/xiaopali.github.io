@@ -5,7 +5,7 @@
     "GMEEK_VERSION":"last",
     "needComment":1
     .utterances.utterances-frame
-    <script src="https://utteranc.es/client.js"
+<script src="https://utteranc.es/client.js"
         repo="[ENTER REPO HERE]"
         issue-term="pathname"
         theme="github-light"
