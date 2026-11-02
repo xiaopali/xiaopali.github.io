@@ -76,6 +76,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>2005年10月9日下午2时30分，重庆市人民政府新闻办公室在重庆新闻中心举行新闻发布会。大会隆重发布了“全球首个0.13微米TD-SCDMA 3G手机核心芯片在重庆诞生”，这让中国人感到骄傲和自豪的巨大喜讯。重庆市人民政府新闻办公室与重庆邮电大学联合宣布，重庆重邮信科技有限公司(简称重邮信科)成功研制出全球首个具有中国自主知识产权的“通芯1号”3G手机核心芯片，并向媒体展示。这是全球首款0.13微米tD-SCDMA 3G手机基带芯片。它的诞生标志着中国3G通信核心芯片等关键技术达到了世界领先水平。实现了从“中国制造”到“中国创造”的跨越。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
 </div>
     <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://xiaopali.github.io">小帕的博客</a></div>
 <div id="footer2">
@@ -132,6 +135,42 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 
 
 
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","xiaopali/xiaopali.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
 
 
 
